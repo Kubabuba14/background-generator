@@ -1,5 +1,6 @@
 //VARIABLES FOR DOCUMENT SELECTORS
-
+import { without } from "lodash";
+console.log (without);
 let css = document.getElementById("gradientTxt");
 let color1 = document.querySelector(".color1");
 let color2 = document.querySelector(".color2");
@@ -19,7 +20,7 @@ const setGradient = () => {
     css.textContent = `(${color1.value}, ${color2.value})`.toUpperCase();
 }
 
-//FUNCTION FOR RANDOM VALUES
+//FUNCTION FOR RANDOM 2
 // (1<<24) === 16777216   Math random gives a number between 0-1 
 // 1<<24 gives 16777216 which gives all the posibilities of 24-bit colour.
 // math.floor brings it to a integer number.
@@ -31,9 +32,7 @@ const randomGradient = () => {
     color1.value = randomColor1;
     color2.value = randomColor2;
 
-    setGradient();
-    css.textContent = xyGradient.toLocaleUpperCase();
-}
+    setGradient();}
 
 //  COPY FUNCTION ON BUTTON
 
