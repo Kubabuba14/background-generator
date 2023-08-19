@@ -1,6 +1,4 @@
 //VARIABLES FOR DOCUMENT SELECTORS
-import { without } from "lodash";
-console.log (without);
 let css = document.getElementById("gradientTxt");
 let color1 = document.querySelector(".color1");
 let color2 = document.querySelector(".color2");
@@ -17,7 +15,7 @@ const setGradient = () => {
     css.style.background = xyGradient;
     copyGrad.style.background = xyGradient;
     
-    css.textContent = `(${color1.value}, ${color2.value})`.toUpperCase();
+    css.textContent = `linear-gradient(to right,${color1.value}, ${color2.value})`.toUpperCase();
 }
 
 //FUNCTION FOR RANDOM 2
@@ -32,14 +30,16 @@ const randomGradient = () => {
     color1.value = randomColor1;
     color2.value = randomColor2;
 
-    setGradient();}
+    setGradient();
+    css.textContent = `linear-gradient(to right, ${color1.value}, ${color2.value});`.toUpperCase();
+}
 
 //  COPY FUNCTION ON BUTTON
 
 const copyText = () => {
     let copyText = css;
     copyText.select();
-    navigator.clipboard("copy")
+    navigator.clipboard.writeText(copyText.textContent)
 }
 
 // Execution
